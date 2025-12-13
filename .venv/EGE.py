@@ -1,10 +1,12 @@
+import sys
+from ctypes import *
 from os import system
 from tkinter import *
 from random import *
 
 def isAdmin():
     try:
-        return ctypes.windll.shell32.IsUserAnAdmin()
+        return windll.shell32.IsUserAnAdmin()
     except:
         return False
 def createLabel(text, window):
@@ -58,4 +60,5 @@ if isAdmin():
 
     window.mainloop()
 else:
-    ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
+    windll.shell32.ShellExecuteW(None, "runas", sys.executable, __file__, None, 1)
+    sys.exit()
