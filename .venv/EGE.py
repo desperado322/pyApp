@@ -1,7 +1,4 @@
-import random
-from nt import chmod
 from os import system
-from shutil import rmtree
 from tkinter import *
 from random import *
 
